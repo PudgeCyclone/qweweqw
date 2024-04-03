@@ -1,0 +1,52 @@
+Router# reload
+Router> enable
+Router# conf t
+Router(config)# hostname НовоеИмя
+Router(config)# no ip domain-lookup
+Router(config)# security passwords min-length 10
+Router(config)# enable secret cisco12345
+Router(config)# line console 0
+Router(config-line)# password ciscoconpass
+Router(config-line)# login
+Router(config-line)# exec-timeout 5 0
+Router(config-line)# logging synchronous
+Router(config)# line vty 0 15
+Router(config-line)# password ciscovtypass
+Router(config-line)# login
+Router(config-line)# exec-timeout 5 0
+Router(config-line)# logging synchronous
+Router(config)# service password-encryption - шифрование открытых паролей
+Router(config)# banner motd #
+Unauthorized access is strictly prohibited.
+This system is the property of [Your Company Name].
+Violators will be prosecuted to the fullest extent of the law. #
+Router(config)# interface FastEthernet0/0
+Router(config-if)# description LAN Interface
+Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Router(config-if)# no shutdown
+Router# clock set 21:40:00 Feb 21 2024
+Router# copy running-config startup-config
+telnet 192.168.1.1
+R1(config)# ip domain-name CCNA-lab.com
+Online Cisco lab training for CCNA Certification, CCNP, CCVP, CCSP.
+Online Cisco lab training for CCNA Certification, CCNP, CCVP, CCSP.
+CCNA-lab.com
+R1(config)# crypto key generate rsa general-keys modulus 1024
+R1(config)# username ваша_фамилия secret ваш_пароль
+Создание юзера для ssh
+R1(config)# line vty 0 15
+R1(config-line)# transport input ssh
+R1(config-line)# login local
+show startup-config
+show ip route
+show ip interface brief
+Даниил
+Даниил
+21 фев в 22:36
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# ipv6 address 2001:db8:acad:a::1/64
+R1(config-if)# ipv6 address fe80::1 link-local
+R1(config-if)# ipv6 enable
+R1(config-if)# exit
+
+R1(config)# ipv6 unicast-routing
